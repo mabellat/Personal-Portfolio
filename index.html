@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANOJKUMAR BELLATTI // BACKEND & AI ENGINEER</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#050507',
+                        'obsidian-card': '#0a0a0e',
+                        'chrome-silver': '#e2e8f0',
+                        'metallic-border': 'rgba(255, 255, 255, 0.12)',
+                        'accent-blue': '#38bdf8'
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        mono: ['SF Mono', 'Menlo', 'Monaco', 'Courier New', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="bg-obsidian text-slate-300 font-sans antialiased overflow-hidden selection:bg-white selection:text-black">
+
+    <!-- Interactive Canvas Backdrop -->
+    <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <!-- Top Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 px-6 py-4 transition-all duration-300">
+        <div
+            class="max-w-7xl mx-auto flex items-center justify-between glass-panel rounded-full px-6 py-3 border border-white/10">
+            <a href="#hero" class="flex items-center gap-3 group">
+                <div
+                    class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/20 text-white font-mono text-xs font-bold group-hover:scale-105 transition-transform">
+                    MB
+                </div>
+                <span class="text-sm tracking-widest uppercase font-mono font-medium text-white">Manojkumar <span
+                        class="text-slate-500">/</span> Bellatti</span>
+            </a>
+
+            <!-- Nav Links Matching Resume Flow -->
+            <nav class="hidden lg:flex items-center gap-6 text-xs font-mono tracking-wider text-slate-400">
+                <a href="#hero" class="hover:text-white transition-colors">01. ABOUT</a>
+                <a href="#education" class="hover:text-white transition-colors">02. EDUCATION</a>
+                <a href="#skills" class="hover:text-white transition-colors">03. SKILLS</a>
+                <a href="#experience" class="hover:text-white transition-colors">04. EXPERIENCE</a>
+                <a href="#projects" class="hover:text-white transition-colors">05. PROJECTS</a>
+                <a href="#awards" class="hover:text-white transition-colors">06. AWARDS</a>
+            </nav>
+
+            <a href="#contact"
+                class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-white text-white text-xs font-mono tracking-wider transition-all hover:scale-105">
+                <span>INITIATE CONTACT</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Scrollable Main Container with Snap Alignment -->
+    <main class="snap-container relative z-10">
+
+        <!-- 01. HERO / ABOUT SECTION -->
+        <section id="hero" class="snap-section flex flex-col items-center justify-center relative px-6 text-center">
+            <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
+
+                <!-- PROFILE PICTURE FRAME -->
+                <div class="relative group shrink-0">
+                    <div
+                        class="w-40 h-40 md:w-48 md:h-48 rounded-full p-1 bg-gradient-to-b from-white/30 via-white/10 to-transparent shadow-2xl border border-white/20 relative overflow-hidden">
+                        <!-- Make sure to save your photo in the same folder as profile.jpg -->
+                        <img src="profile.jpg" alt="Manojkumar Bellatti"
+                            class="w-full h-full object-cover rounded-full hover:scale-105 transition-all duration-500"
+                            onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=500'">
+                    </div>
+                    <div
+                        class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/80 border border-white/20 text-[10px] font-mono text-slate-300 backdrop-blur-md">
+                        USC MS CS '28
+                    </div>
+                </div>
+
+                <div class="space-y-4 text-center md:text-left">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-400">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>LOS ANGELES, CA // bellatti@usc.edu</span>
+                    </div>
+
+                    <h1 class="text-4xl md:text-6xl font-bold tracking-tight chrome-text">
+                        Manojkumar Bellatti
+                    </h1>
+
+                    <p class="text-xs font-mono text-slate-400 tracking-wider uppercase">
+                        BACKEND SOFTWARE ENGINEER // DISTRIBUTED SYSTEMS & AGENTIC AI
+                    </p>
+
+                    <!-- Text Justified Paragraph -->
+                    <p class="text-sm md:text-base text-slate-400 font-light leading-relaxed max-w-2xl text-justify">
+                        Backend Software Engineer with 2+ years of experience building production APIs, distributed
+                        microservices, ETL pipelines, and agentic AI systems at Cisco. Skilled in Python, FastAPI,
+                        PostgreSQL, GraphQL, AWS, Docker, Kubernetes, OpenShift, Apache Kafka, and Spark Streaming.
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-2">
+                        <!-- LINKEDIN BUTTON WITH INLINE SVG ICON -->
+                        <a href="https://linkedin.com/in/manojkumar-bellatti" target="_blank"
+                            class="px-5 py-2.5 rounded-full border border-white/20 bg-white/5 text-white text-xs font-mono tracking-wider hover:bg-white hover:text-black transition-all flex items-center gap-2 group">
+                            <svg class="w-4 h-4 fill-current text-white group-hover:text-black transition-colors"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.47 1.47 0 1 0 0 2.94 1.47 1.47 0 0 0 0-2.94Z" />
+                            </svg>
+                            <span>LINKEDIN</span>
+                        </a>
+
+                        <!-- EMAIL ME BUTTON (DIRECT TO GMAIL WITH CC) -->
+                        <a 
+                            href="https://mail.google.com/mail/?view=cm&fs=1&to=manojkumar.bellatti@gmail.com&cc=bellatti@usc.edu" 
+                            target="_blank" 
+                            class="px-5 py-2.5 rounded-full border border-white/20 bg-white/5 text-white text-xs font-mono tracking-wider hover:bg-white hover:text-black transition-all flex items-center gap-2"
+                        >
+                            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+                            <span>EMAIL ME</span>
+                        </a>
+
+                        <!-- TRANSMIT MESSAGE BUTTON -->
+                        <a href="#contact"
+                            class="px-5 py-2.5 rounded-full bg-white text-black font-semibold text-xs font-mono tracking-wider hover:bg-slate-200 transition-all flex items-center gap-2">
+                            <span>TRANSMIT MESSAGE</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Indicator -->
+            <div
+                class="absolute bottom-6 left-1/2 -translate-x-1/2 text-center font-mono text-[10px] text-slate-500 flex flex-col items-center gap-1">
+                <span>SCROLL TO ACADEMIC BACKGROUND</span>
+                <i data-lucide="chevron-down" class="w-3.5 h-3.5 animate-bounce"></i>
+            </div>
+        </section>
+
+
+        <!-- 02. EDUCATION SECTION -->
+        <section id="education" class="snap-section flex flex-col justify-center relative px-6 max-w-6xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-xs text-slate-500 tracking-widest uppercase">02 // ACADEMIC BACKGROUND</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mt-1">Education.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- USC Card -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/15 hover:border-white/40 transition-all group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs text-slate-400">MAY 2028 (EXPECTED)</span>
+                        <span class="px-2.5 py-1 rounded bg-white/10 text-white font-mono text-[10px]">LOS ANGELES, CA</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-4 mb-3">
+                        <!-- USC Logo Badge -->
+                        <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 p-2 flex items-center justify-center shrink-0 group-hover:border-white/30 transition-all">
+                            <img src="usc-logo.png" alt="USC Logo" class="w-full h-full object-contain filter brightness-110" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/9/94/USC_Trojans_logo.svg';">
+                        </div>
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-bold text-white group-hover:text-chrome-silver transition-colors">University of Southern California</h3>
+                            <p class="text-sm font-mono text-slate-400 mt-0.5">M.S. in Computer Science</p>
+                        </div>
+                    </div>
+
+                    <p class="text-xs text-slate-500 mt-4 leading-relaxed font-light text-justify">
+                        Focusing on advanced distributed systems, scalable cloud architectures, and machine learning backend integration.
+                    </p>
+                </div>
+
+                <!-- RV College of Engineering Card -->
+                <div class="glass-panel p-8 rounded-2xl border border-white/15 hover:border-white/40 transition-all group">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="font-mono text-xs text-slate-400">JUL 2024</span>
+                        <span class="px-2.5 py-1 rounded bg-white/10 text-white font-mono text-[10px]">BANGALORE, INDIA</span>
+                    </div>
+
+                    <div class="flex items-center gap-4 mb-3">
+                        <!-- RVCE Logo Badge -->
+                        <div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 p-2 flex items-center justify-center shrink-0 group-hover:border-white/30 transition-all">
+                            <img src="rvce-logo.png" alt="RVCE Logo" class="w-full h-full object-contain filter brightness-110" onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/en/2/29/RV_College_of_Engineering_logo.png';">
+                        </div>
+                        <div>
+                            <h3 class="text-xl md:text-2xl font-bold text-white group-hover:text-chrome-silver transition-colors">RV College of Engineering</h3>
+                            <p class="text-sm font-mono text-slate-400 mt-0.5">B.E. in Computer Science</p>
+                        </div>
+                    </div>
+
+                    <div class="inline-block mt-3 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 font-mono text-xs text-emerald-400">
+                        GPA: 9.25 / 10.0
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 03. SKILLS MATRIX SECTION -->
+        <section id="skills" class="snap-section flex flex-col justify-center relative px-6 max-w-6xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-xs text-slate-500 tracking-widest uppercase">03 // COMPETENCY MATRIX</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mt-1">Technical Skills.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Languages -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 space-y-3">
+                    <div class="flex items-center gap-3 text-white font-mono text-sm font-bold">
+                        <i data-lucide="code" class="w-4 h-4 text-slate-400"></i>
+                        <span>Languages</span>
+                    </div>
+                    <p class="text-xs text-slate-400 font-mono leading-relaxed">
+                        Python, Java, C++, JavaScript, SQL, Bash
+                    </p>
+                </div>
+
+                <!-- Backend & AI -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 space-y-3">
+                    <div class="flex items-center gap-3 text-white font-mono text-sm font-bold">
+                        <i data-lucide="cpu" class="w-4 h-4 text-slate-400"></i>
+                        <span>Backend & AI</span>
+                    </div>
+                    <p class="text-xs text-slate-400 font-mono leading-relaxed">
+                        FastAPI, Flask, Spring Boot, Node.js, REST APIs, GraphQL, LangGraph, LangChain, LLM Agents, NLP
+                    </p>
+                </div>
+
+                <!-- Cloud & DevOps -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 space-y-3">
+                    <div class="flex items-center gap-3 text-white font-mono text-sm font-bold">
+                        <i data-lucide="cloud" class="w-4 h-4 text-slate-400"></i>
+                        <span>Cloud & DevOps</span>
+                    </div>
+                    <p class="text-xs text-slate-400 font-mono leading-relaxed">
+                        AWS (S3, RDS, EMR Serverless, Glue), Docker, Kubernetes, OpenShift, CI/CD, Jenkins, GitHub
+                        Actions
+                    </p>
+                </div>
+
+                <!-- Data & Databases -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 space-y-3">
+                    <div class="flex items-center gap-3 text-white font-mono text-sm font-bold">
+                        <i data-lucide="database" class="w-4 h-4 text-slate-400"></i>
+                        <span>Data & Databases</span>
+                    </div>
+                    <p class="text-xs text-slate-400 font-mono leading-relaxed">
+                        PostgreSQL, MySQL, MongoDB, Redis, Apache Kafka, Spark Streaming, ETL Pipelines
+                    </p>
+                </div>
+
+                <!-- Architecture & Testing -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 space-y-3 md:col-span-2 lg:col-span-2">
+                    <div class="flex items-center gap-3 text-white font-mono text-sm font-bold">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-slate-400"></i>
+                        <span>Architecture & Testing</span>
+                    </div>
+                    <p class="text-xs text-slate-400 font-mono leading-relaxed">
+                        System Design, Distributed Systems, Concurrency, Asynchronous Programming, PyTest,
+                        Unit/Integration Testing, Agile/Scrum
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 04. PROFESSIONAL EXPERIENCE SECTION -->
+        <section id="experience" class="snap-section flex flex-col justify-center relative px-6 max-w-6xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-xs text-slate-500 tracking-widest uppercase">04 // CAREER TIMELINE</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mt-1">Professional Experience.</h2>
+            </div>
+
+            <div class="space-y-6 border-l border-white/10 pl-6 md:pl-10 relative">
+                <!-- Role 1: Cisco Software Developer -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-3 h-3 rounded-full bg-white border-4 border-obsidian"></div>
+                    <div class="flex flex-wrap items-center justify-between gap-2 font-mono text-xs text-slate-500 mb-1">
+                        <span>AUG 2024 — AUG 2026 // BANGALORE, INDIA</span>
+                        <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">FULL-TIME</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Software Developer @ Cisco Systems India Pvt. Ltd.</h3>
+                    <ul class="text-xs md:text-sm text-slate-400 mt-2 font-light space-y-1.5 list-disc list-inside leading-relaxed text-justify">
+                        <li>Architected a production agentic AI backend using Python, FastAPI, LangGraph, PostgreSQL, and Amazon S3; scaled system to support 1,000+ active enterprise clients within 2 months while reducing SLA response time by 67% (30s to 10s).</li>
+                        <li>Led backend development and data modeling for the SPNRA platform using FastAPI and PostgreSQL, slashing service-ticket turnaround time from 14 days down to minutes.</li>
+                        <li>Engineered high-throughput ETL pipelines and GraphQL services for Cisco IQ Certificate Management.</li>
+                        <li>Enhanced system observability and automated fault tolerance across 3 mission-critical production platforms (Scalability Insights, Audit Insights, and BCS Automated Fault Management).</li>
+                    </ul>
+                </div>
+
+                <!-- Role 2: Cisco Intern -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] md:-left-[47px] top-1.5 w-3 h-3 rounded-full bg-slate-600 border-4 border-obsidian"></div>
+                    <div class="flex flex-wrap items-center justify-between gap-2 font-mono text-xs text-slate-500 mb-1">
+                        <span>JAN 2024 — JUL 2024 // BANGALORE, INDIA</span>
+                        <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 text-[10px]">INTERNSHIP</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">Software Developer Intern @ Cisco Systems India Pvt. Ltd.</h3>
+                    <ul class="text-xs md:text-sm text-slate-400 mt-2 font-light space-y-1.5 list-disc list-inside leading-relaxed text-justify">
+                        <li>Developed high-volume distributed microservices using Python and message queues for real-time syslog processing within Cisco CX Cloud Automated Fault Management.</li>
+                        <li>Benchmarked AWS EMR Serverless against AWS Glue for batch ETL processing of 20M syslogs across 10 tenants, proving 12% faster execution time (29 vs. 33 min) that informed cloud architecture.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 05. SELECTED PROJECTS SECTION -->
+        <section id="projects" class="snap-section flex flex-col justify-center relative px-6 max-w-6xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-xs text-slate-500 tracking-widest uppercase">05 //
+                    PROJECTS</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mt-1">Selected Projects</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <div
+                    class="glass-panel rounded-2xl p-6 silver-border flex flex-col justify-between h-[380px] group transition-all duration-300 hover:-translate-y-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-mono text-[10px] text-slate-500">PROJECT 01</span>
+                            <!-- Action Links -->
+                            <div class="flex items-center gap-2">
+                                <!-- GitHub Link -->
+                                <a href="https://github.com/mabellat/Race-Intelligence-Engine" target="_blank"
+                                    title="View Source Code"
+                                    class="p-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all">
+                                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                                    </svg>
+                                </a>
+                                <!-- Live Demo Link (If exists) -->
+                                <a href="https://race-intelligence-engine-mabellat.streamlit.app/" target="_blank"
+                                    title="Launch Live Demo"
+                                    class="p-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all flex items-center gap-1 font-mono text-[10px]">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Personal Race Intelligence</h3>
+                        <p class="text-xs text-slate-400 font-light leading-relaxed">Streamlit & FastAPI app analyzing
+                            GPX route files to synthesize spatial pace strategies across terrain changes with Gemini
+                            API.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[9px] text-slate-400">
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">PYTHON</span>
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">FASTAPI</span>
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">POSTGIS</span>
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">GEMINI API</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="glass-panel rounded-2xl p-6 silver-border flex flex-col justify-between h-[380px] group transition-all duration-300 hover:-translate-y-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-mono text-[10px] text-slate-500">PROJECT 02</span>
+                            <!-- Action Links -->
+                            <div class="flex items-center gap-2">
+                                <!-- GitHub Link -->
+                                <a href="https://github.com/your-username/telemetry-pipeline" target="_blank"
+                                    title="View Source Code"
+                                    class="p-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all">
+                                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Live Telemetry Pipeline</h3>
+                        <p class="text-xs text-slate-400 font-light leading-relaxed">Distributed event-streaming engine
+                            simulating live runner metrics with real-time anomaly detection alerts via Spark &
+                            WebSockets.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[9px] text-slate-400">
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">KAFKA</span>
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">SPARK</span>
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">REDIS</span>
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">WEBSOCKETS</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div
+                    class="glass-panel rounded-2xl p-6 silver-border flex flex-col justify-between h-[380px] group transition-all duration-300 hover:-translate-y-1">
+                    <div>
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-mono text-[10px] text-slate-500">PROJECT 03</span>
+                            <!-- Action Links -->
+                            <div class="flex items-center gap-2">
+                                <!-- GitHub Link -->
+                                <a href="https://github.com/your-username/enterprise-rag" target="_blank"
+                                    title="View Source Code"
+                                    class="p-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all">
+                                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                                        <path
+                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Enterprise RAG & Graph Engine</h3>
+                        <p class="text-xs text-slate-400 font-light leading-relaxed">Hybrid vector-and-graph search
+                            engine extracting entity graphs into Neo4j with pgvector isolated embeddings.</p>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5 font-mono text-[9px] text-slate-400">
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">PGVECTOR</span>
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">NEO4J</span>
+                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">LANGCHAIN</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 06. AWARDS & ACTIVITIES SECTION -->
+        <section id="awards" class="snap-section flex flex-col justify-center relative px-6 max-w-6xl mx-auto">
+            <div class="mb-8">
+                <span class="font-mono text-xs text-slate-500 tracking-widest uppercase">06 // RECOGNITION &
+                    COMMUNITY</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mt-1">Awards & Activities.</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Awards -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i data-lucide="award" class="w-5 h-5 text-amber-400"></i>
+                        <span>Awards & Honors</span>
+                    </h3>
+                    <ul class="space-y-3 text-xs text-slate-300 font-mono">
+                        <li class="flex items-start gap-2">
+                            <span class="text-emerald-400">🥇</span>
+                            <span>1st Place — Tech for Social Good Hackathon (Cisco & Opportunity International)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-slate-400">🥉</span>
+                            <span>3rd Place — HPCC Hackathon (HPCC Systems & LexisNexis USA)</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Activities -->
+                <div class="glass-panel p-6 rounded-2xl border border-white/10 space-y-4">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i data-lucide="users" class="w-5 h-5 text-sky-400"></i>
+                        <span>Activities & Events</span>
+                    </h3>
+                    <ul class="space-y-3 text-xs text-slate-300 font-mono">
+                        <li class="flex items-start gap-2">
+                            <span class="text-slate-500">•</span>
+                            <span>Attendee, AWS Generative AI Day (Cisco Bengaluru Campus — May 2025)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <span class="text-slate-500">•</span>
+                            <span>Member, ACCELERATE Technical Club (Dept. of CS, RV College of Engineering)</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- 07. CONTACT SECTION -->
+        <section id="contact" class="snap-section flex flex-col justify-center relative px-6 max-w-4xl mx-auto text-center">
+            <div class="glass-panel p-8 md:p-14 rounded-3xl border border-white/20 space-y-6">
+                <div class="space-y-2">
+                    <span class="font-mono text-xs text-slate-500 tracking-widest uppercase">07 // INITIATE TRANSMISSION</span>
+                    <h2 class="text-3xl md:text-5xl font-bold chrome-text">Let's Connect.</h2>
+                    <p class="text-slate-400 max-w-md mx-auto text-xs font-light">Open for software engineering opportunities, research collaborations, and backend consulting.</p>
+                </div>
+
+                <!-- Formspree Async Form -->
+                <form 
+                    id="contact-form"
+                    action="https://formspree.io/f/mqpaeqaq" 
+                    method="POST" 
+                    class="space-y-3 max-w-md mx-auto text-left"
+                >
+                    <input 
+                        type="text" 
+                        name="name" 
+                        placeholder="YOUR NAME" 
+                        required 
+                        class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-mono text-xs focus:outline-none focus:border-white transition-all"
+                    >
+                    <input 
+                        type="email" 
+                        name="email" 
+                        placeholder="YOUR EMAIL ADDRESS" 
+                        required 
+                        class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-mono text-xs focus:outline-none focus:border-white transition-all"
+                    >
+                    <textarea 
+                        rows="3" 
+                        name="message" 
+                        placeholder="YOUR MESSAGE" 
+                        required 
+                        class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-mono text-xs focus:outline-none focus:border-white transition-all resize-none"
+                    ></textarea>
+                    <button 
+                        type="submit" 
+                        id="form-submit-btn"
+                        class="w-full py-3 rounded-xl bg-white text-black font-mono font-bold text-xs uppercase tracking-widest hover:bg-slate-200 transition-all cursor-pointer flex items-center justify-center gap-2"
+                    >
+                        <span>SEND TRANSMISSION →</span>
+                    </button>
+                </form>
+
+                <div class="pt-4 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-slate-500">
+                    <span>© 2026 MANOJKUMAR BELLATTI</span>
+                    <span>LOS ANGELES, CA</span>
+                </div>
+            </div>
+
+            <!-- CUSTOM POP-UP MODAL (HIDDEN BY DEFAULT) -->
+            <div id="success-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-all duration-300">
+                <div class="glass-panel p-8 md:p-10 rounded-3xl border border-white/20 max-w-sm w-full text-center space-y-4 shadow-2xl scale-95 transition-all duration-300 transform" id="modal-card">
+                    <div class="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-400">
+                        <i data-lucide="check-circle" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white tracking-tight">Transmission Received!</h3>
+                    <p class="text-xs text-slate-400 font-light leading-relaxed">
+                        Thank you for reaching out! I've received your message and will get right back to you.
+                    </p>
+                    <button 
+                        onclick="closeSuccessModal()"
+                        class="w-full py-2.5 rounded-xl bg-white text-black font-mono font-bold text-xs uppercase tracking-wider hover:bg-slate-200 transition-all cursor-pointer mt-2"
+                    >
+                        CLOSE WINDOW
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCRIPT TO HANDLE ASYNC SUBMISSION & MODAL -->
+        <script>
+            const form = document.getElementById('contact-form');
+            const submitBtn = document.getElementById('form-submit-btn');
+            const modal = document.getElementById('success-modal');
+            const modalCard = document.getElementById('modal-card');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                // Show loading state on button
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = `<span>TRANSMITTING...</span>`;
+
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+
+                    if (response.ok) {
+                        // Reset Form
+                        form.reset();
+                        
+                        // Show Success Pop-up
+                        modal.classList.remove('opacity-0', 'pointer-events-none');
+                        modalCard.classList.remove('scale-95');
+                        modalCard.classList.add('scale-100');
+                    } else {
+                        alert('Oops! There was a problem submitting your form. Please try again.');
+                    }
+                } catch (error) {
+                    alert('Oops! Network error. Please try again later.');
+                } finally {
+                    // Restore button
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = `<span>SEND TRANSMISSION →</span>`;
+                }
+            });
+
+            function closeSuccessModal() {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modalCard.classList.remove('scale-100');
+                modalCard.classList.add('scale-95');
+            }
+        </script>
+
+    </main>
+
+    <!-- Canvas Logic & Animations -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Canvas Particle Mesh System
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const particles = Array.from({ length: 60 }, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.4,
+            vy: (Math.random() - 0.5) * 0.4,
+            radius: Math.random() * 1.5 + 0.5
+        }));
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+
+            particles.forEach((p, index) => {
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                for (let j = index + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 120) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            });
+
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+    </script>
+</body>
+
+</html>
