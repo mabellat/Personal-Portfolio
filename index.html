@@ -42,19 +42,17 @@
     <canvas id="bg-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
     <!-- Top Navigation Bar -->
-    <header class="fixed top-0 left-0 w-full z-50 px-6 py-4 transition-all duration-300">
-        <div
-            class="max-w-7xl mx-auto flex items-center justify-between glass-panel rounded-full px-6 py-3 border border-white/10">
+    <!-- Top Navigation Bar with Mobile Responsiveness -->
+    <header class="fixed top-0 left-0 w-full z-50 px-4 sm:px-6 py-4 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex items-center justify-between glass-panel rounded-full px-4 sm:px-6 py-3 border border-white/10">
             <a href="#hero" class="flex items-center gap-3 group">
-                <div
-                    class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/20 text-white font-mono text-xs font-bold group-hover:scale-105 transition-transform">
+                <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/20 text-white font-mono text-xs font-bold group-hover:scale-105 transition-transform">
                     MB
                 </div>
-                <span class="text-sm tracking-widest uppercase font-mono font-medium text-white">Manojkumar <span
-                        class="text-slate-500">/</span> Bellatti</span>
+                <span class="text-xs sm:text-sm tracking-widest uppercase font-mono font-medium text-white">Manojkumar <span class="text-slate-500">/</span> Bellatti</span>
             </a>
 
-            <!-- Nav Links Matching Resume Flow -->
+            <!-- Desktop Nav Links -->
             <nav class="hidden lg:flex items-center gap-6 text-xs font-mono tracking-wider text-slate-400">
                 <a href="#hero" class="hover:text-white transition-colors">01. ABOUT</a>
                 <a href="#education" class="hover:text-white transition-colors">02. EDUCATION</a>
@@ -64,12 +62,34 @@
                 <a href="#awards" class="hover:text-white transition-colors">06. AWARDS</a>
             </nav>
 
-            <a href="#contact"
-                class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-white text-white text-xs font-mono tracking-wider transition-all hover:scale-105">
+            <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 hover:bg-white text-white text-xs font-mono tracking-wider transition-all hover:scale-105">
                 <span>INITIATE CONTACT</span>
             </a>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" onclick="toggleMobileMenu()" class="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden max-w-7xl mx-auto mt-2 glass-panel rounded-2xl p-6 border border-white/10 flex flex-col gap-4 text-xs font-mono tracking-wider text-slate-300">
+            <a href="#hero" onclick="toggleMobileMenu()" class="hover:text-white transition-colors py-1">01. ABOUT</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="hover:text-white transition-colors py-1">02. EDUCATION</a>
+            <a href="#skills" onclick="toggleMobileMenu()" class="hover:text-white transition-colors py-1">03. SKILLS</a>
+            <a href="#experience" onclick="toggleMobileMenu()" class="hover:text-white transition-colors py-1">04. EXPERIENCE</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="hover:text-white transition-colors py-1">05. PROJECTS</a>
+            <a href="#awards" onclick="toggleMobileMenu()" class="hover:text-white transition-colors py-1">06. AWARDS</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="inline-block text-center mt-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 text-white">INITIATE CONTACT</a>
         </div>
     </header>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
 
     <!-- Scrollable Main Container with Snap Alignment -->
     <main class="snap-container relative z-10">
