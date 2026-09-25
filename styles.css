@@ -36,6 +36,315 @@
     box-shadow: 0 0 25px rgba(226, 232, 240, 0.15);
 }
 
+/* Project card — in-browser app preview */
+.project-preview-frame {
+    background: linear-gradient(165deg, #1a1410 0%, #0d0d12 45%, #050507 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-preview-frame--race {
+    background: linear-gradient(165deg, #0a1218 0%, #0a0a12 48%, #050507 100%);
+}
+
+.project-preview-glow--race {
+    box-shadow: inset 0 0 40px rgba(56, 189, 248, 0.1);
+}
+
+.project-card-featured:hover .project-preview-glow--race {
+    box-shadow: inset 0 0 50px rgba(56, 189, 248, 0.16);
+}
+
+.preview-elev-bar {
+    transform-origin: bottom;
+    animation: preview-bar-pulse 2.8s ease-in-out infinite;
+}
+
+.preview-elev-bar:nth-child(2) { animation-delay: 0.2s; }
+.preview-elev-bar:nth-child(3) { animation-delay: 0.35s; }
+.preview-elev-bar:nth-child(4) { animation-delay: 0.5s; }
+.preview-elev-bar:nth-child(5) { animation-delay: 0.65s; }
+.preview-elev-bar:nth-child(6) { animation-delay: 0.8s; }
+.preview-elev-bar:nth-child(7) { animation-delay: 0.95s; }
+
+.preview-gemini-line {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(56, 189, 248, 0.14) 40%,
+        rgba(167, 139, 250, 0.12) 70%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    background-size: 200% 100%;
+    animation: preview-shimmer 4s ease-in-out infinite;
+}
+
+.project-preview-chrome {
+    background: rgba(0, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.project-preview-glow {
+    box-shadow: inset 0 0 40px rgba(255, 90, 31, 0.08);
+}
+
+.project-card-featured:hover .project-preview-glow {
+    box-shadow: inset 0 0 50px rgba(255, 90, 31, 0.14);
+}
+
+@keyframes preview-bar-pulse {
+    0%, 100% { opacity: 0.45; transform: scaleY(0.92); }
+    50% { opacity: 1; transform: scaleY(1); }
+}
+
+.preview-bar {
+    transform-origin: bottom;
+    animation: preview-bar-pulse 2.4s ease-in-out infinite;
+}
+
+.preview-bar:nth-child(2) { animation-delay: 0.15s; }
+.preview-bar:nth-child(3) { animation-delay: 0.3s; }
+.preview-bar:nth-child(4) { animation-delay: 0.45s; }
+.preview-bar:nth-child(5) { animation-delay: 0.6s; }
+.preview-bar:nth-child(6) { animation-delay: 0.75s; }
+.preview-bar:nth-child(7) { animation-delay: 0.9s; }
+
+@keyframes preview-shimmer {
+    0% { background-position: -120% 0; }
+    100% { background-position: 220% 0; }
+}
+
+.preview-coach-line {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 90, 31, 0.12) 45%,
+        rgba(255, 255, 255, 0.06) 100%
+    );
+    background-size: 200% 100%;
+    animation: preview-shimmer 3.5s ease-in-out infinite;
+}
+
+.project-card-hidden {
+    display: none !important;
+}
+
+/* Live iframe app previews (scaled desktop viewport) */
+.project-live-preview {
+    background: #050507;
+}
+
+.project-embed-shell {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    height: auto;
+    overflow: hidden;
+    background: #0e1117;
+}
+
+.project-embed-shell--zonetwo {
+    background: #f6f3ee;
+}
+
+.project-embed-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--embed-base-w, 1280px);
+    height: var(--embed-base-h, 800px);
+    border: 0;
+    transform: scale(var(--embed-scale, 0.28));
+    transform-origin: 0 0;
+    background: white;
+}
+
+.project-embed-fallback {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: #0e1117;
+}
+
+.project-embed-fallback img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.project-embed-fallback.is-visible {
+    display: block !important;
+}
+
+/* Hero — impact telemetry cards */
+.hero-stat-card {
+    position: relative;
+    border-radius: 1rem;
+    padding: 1px;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.hero-stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.hero-stat-card__inner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 1rem 1rem 0.85rem;
+    border-radius: calc(1rem - 1px);
+    background: rgba(8, 8, 12, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: left;
+    transition: border-color 0.35s ease;
+}
+
+.hero-stat-card:hover .hero-stat-card__inner {
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.hero-stat-card__glow {
+    position: absolute;
+    inset: 0;
+    opacity: 0.55;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+}
+
+.hero-stat-card:hover .hero-stat-card__glow {
+    opacity: 1;
+}
+
+.hero-stat-card--chrome {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(148, 163, 184, 0.08), rgba(255, 255, 255, 0.05));
+}
+.hero-stat-card--chrome .hero-stat-card__glow {
+    background: radial-gradient(ellipse at 20% 0%, rgba(255, 255, 255, 0.12), transparent 55%);
+}
+
+.hero-stat-card--emerald {
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.35), rgba(16, 185, 129, 0.08), rgba(255, 255, 255, 0.04));
+}
+.hero-stat-card--emerald .hero-stat-card__glow {
+    background: radial-gradient(ellipse at 80% 0%, rgba(52, 211, 153, 0.18), transparent 60%);
+}
+
+.hero-stat-card--violet {
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.35), rgba(139, 92, 246, 0.08), rgba(255, 255, 255, 0.04));
+}
+.hero-stat-card--violet .hero-stat-card__glow {
+    background: radial-gradient(ellipse at 50% 100%, rgba(167, 139, 250, 0.15), transparent 55%);
+}
+
+.hero-stat-card--sky {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.35), rgba(14, 165, 233, 0.08), rgba(255, 255, 255, 0.04));
+}
+.hero-stat-card--sky .hero-stat-card__glow {
+    background: radial-gradient(ellipse at 0% 50%, rgba(56, 189, 248, 0.16), transparent 55%);
+}
+
+.hero-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.65rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(226, 232, 240, 0.85);
+    transition: transform 0.35s ease, background 0.35s ease;
+}
+
+.hero-stat-card:hover .hero-stat-icon {
+    transform: scale(1.06);
+}
+
+.hero-stat-icon--emerald {
+    color: rgb(52, 211, 153);
+    background: rgba(52, 211, 153, 0.1);
+    border-color: rgba(52, 211, 153, 0.25);
+}
+
+.hero-stat-icon--violet {
+    color: rgb(196, 181, 253);
+    background: rgba(167, 139, 250, 0.1);
+    border-color: rgba(167, 139, 250, 0.25);
+}
+
+.hero-stat-icon--sky {
+    color: rgb(56, 189, 248);
+    background: rgba(56, 189, 248, 0.1);
+    border-color: rgba(56, 189, 248, 0.25);
+}
+
+.hero-stat-spark {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 1.25rem;
+}
+
+.hero-stat-spark span {
+    flex: 1;
+    height: var(--h, 50%);
+    border-radius: 2px 2px 0 0;
+    background: linear-gradient(180deg, rgba(226, 232, 240, 0.55), rgba(148, 163, 184, 0.15));
+    transform-origin: bottom;
+    animation: stat-spark-rise 1.2s ease-out backwards;
+}
+
+.hero-stat-spark span:nth-child(1) { animation-delay: 0.05s; }
+.hero-stat-spark span:nth-child(2) { animation-delay: 0.12s; }
+.hero-stat-spark span:nth-child(3) { animation-delay: 0.19s; }
+.hero-stat-spark span:nth-child(4) { animation-delay: 0.26s; }
+.hero-stat-spark span:nth-child(5) { animation-delay: 0.33s; }
+.hero-stat-spark span:nth-child(6) { animation-delay: 0.4s; }
+
+.hero-stat-spark--violet span {
+    background: linear-gradient(180deg, rgba(196, 181, 253, 0.7), rgba(139, 92, 246, 0.2));
+}
+
+@keyframes stat-spark-rise {
+    from { transform: scaleY(0); opacity: 0; }
+    to { transform: scaleY(1); opacity: 1; }
+}
+
+.hero-stat-meter {
+    height: 4px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.06);
+    overflow: hidden;
+}
+
+.hero-stat-meter__fill {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, rgb(52, 211, 153), rgb(16, 185, 129));
+    transform-origin: left;
+    animation: stat-meter-grow 1.4s ease-out backwards;
+    animation-delay: 0.25s;
+}
+
+.hero-stat-meter--sky .hero-stat-meter__fill {
+    background: linear-gradient(90deg, rgb(56, 189, 248), rgb(14, 165, 233));
+}
+
+@keyframes stat-meter-grow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-stat-card:hover { transform: none; }
+    .hero-stat-spark span,
+    .hero-stat-meter__fill { animation: none; }
+}
+
 /* Responsive Scroll Snap setup */
 /* Desktop / Tablet (Snap Effect Enabled) */
 @media (min-width: 1024px) {

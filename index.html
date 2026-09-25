@@ -95,32 +95,31 @@
     <main class="snap-container relative z-10">
 
         <!-- 01. HERO / ABOUT SECTION -->
-        <section id="hero" class="snap-section flex flex-col items-center justify-center relative px-6 text-center">
+        <section id="hero" class="snap-section flex flex-col justify-center relative px-6 max-w-5xl mx-auto min-h-screen pt-20 pb-12">
             <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
 
-                <!-- PROFILE PICTURE FRAME -->
+                <!-- PROFILE PICTURE FRAME (WITH FACE CROP & LIGHTBOX CLICK) -->
                 <div class="relative group shrink-0 cursor-pointer" onclick="openImageModal()">
-                    <div
-                        class="w-40 h-40 md:w-48 md:h-48 rounded-full p-1 bg-gradient-to-b from-white/30 via-white/10 to-transparent shadow-2xl border border-white/20 relative overflow-hidden transition-all duration-300 group-hover:border-white/50 group-hover:scale-105">
-                        <!-- Render sharp image without grayscale blur filters -->
-                        <img id="profile-img-src" src="profile.jpg" alt="Manojkumar Bellatti"
-                            class="w-full h-full object-cover rounded-full image-render-crisp">
+                    <div class="w-40 h-40 md:w-48 md:h-48 rounded-full p-1 bg-gradient-to-b from-white/30 via-white/10 to-transparent shadow-2xl border border-white/20 relative overflow-hidden transition-all duration-300 group-hover:border-white/50 group-hover:scale-105">
+                        <img 
+                            id="profile-img-src" 
+                            src="profile.jpg" 
+                            alt="Manojkumar Bellatti"
+                            class="w-full h-full object-cover object-[center_15%] scale-150 rounded-full image-render-crisp transition-transform duration-500 group-hover:scale-[1.65]"
+                        >
 
                         <!-- Hover Overlay Hint -->
-                        <div
-                            class="absolute inset-0 bg-black/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <div class="absolute inset-0 bg-black/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                             <i data-lucide="maximize-2" class="w-6 h-6 text-white drop-shadow-lg"></i>
                         </div>
                     </div>
-                    <div
-                        class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/80 border border-white/20 text-[10px] font-mono text-slate-300 backdrop-blur-md pointer-events-none">
+                    <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-black/80 border border-white/20 text-[10px] font-mono text-slate-300 backdrop-blur-md pointer-events-none">
                         USC MS CS '28
                     </div>
                 </div>
 
                 <div class="space-y-4 text-center md:text-left">
-                    <div
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-400">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-400">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                         <span>LOS ANGELES, CA // bellatti@usc.edu</span>
                     </div>
@@ -168,15 +167,140 @@
                         </a>
                     </div>
                 </div>
-
             </div>
 
-            <!-- Bottom Indicator -->
-            <div
-                class="absolute bottom-6 left-1/2 -translate-x-1/2 text-center font-mono text-[10px] text-slate-500 flex flex-col items-center gap-1">
-                <span>SCROLL TO ACADEMIC BACKGROUND</span>
-                <i data-lucide="chevron-down" class="w-3.5 h-3.5 animate-bounce"></i>
+            <!-- STATS & TELEMETRY BAR -->
+            <div id="hero-telemetry" class="max-w-5xl w-full mx-auto mt-12 pt-8 border-t border-white/10">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-4 px-0.5">
+                    <span class="inline-flex items-center gap-2 font-mono text-[10px] text-slate-500 tracking-widest uppercase">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-40"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                        </span>
+                        Impact telemetry
+                    </span>
+                    <span class="font-mono text-[10px] text-slate-600 tracking-wider">PRODUCTION · BENCHMARKS · ACADEMIC</span>
+                </div>
+
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+                    <div class="hero-stat-card hero-stat-card--chrome group">
+                        <div class="hero-stat-card__glow"></div>
+                        <div class="hero-stat-card__inner">
+                            <div class="flex items-start justify-between gap-2 mb-3">
+                                <div class="hero-stat-icon">
+                                    <i data-lucide="building-2" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="font-mono text-[9px] text-slate-600 tracking-wider">01</span>
+                            </div>
+                            <div class="hero-stat-value chrome-text font-mono font-bold text-2xl md:text-3xl tracking-tight"
+                                data-stat-value="1000" data-stat-suffix="+">0</div>
+                            <p class="text-[10px] font-mono text-slate-400 mt-1.5 uppercase leading-snug">Enterprise clients scaled</p>
+                            <div class="hero-stat-spark mt-3" aria-hidden="true">
+                                <span style="--h: 42%"></span><span style="--h: 58%"></span><span style="--h: 71%"></span><span style="--h: 88%"></span><span style="--h: 100%"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-stat-card hero-stat-card--emerald group">
+                        <div class="hero-stat-card__glow"></div>
+                        <div class="hero-stat-card__inner">
+                            <div class="flex items-start justify-between gap-2 mb-3">
+                                <div class="hero-stat-icon hero-stat-icon--emerald">
+                                    <i data-lucide="gauge" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="font-mono text-[9px] text-emerald-500/50 tracking-wider">↓ 67</span>
+                            </div>
+                            <div class="hero-stat-value text-emerald-400 font-mono font-bold text-2xl md:text-3xl tracking-tight"
+                                data-stat-value="67" data-stat-suffix="%">0</div>
+                            <p class="text-[10px] font-mono text-slate-400 mt-1.5 uppercase leading-snug">SLA response cut <span class="text-slate-500 normal-case">(30s → 10s)</span></p>
+                            <div class="hero-stat-meter mt-3" aria-hidden="true">
+                                <div class="hero-stat-meter__fill" style="width: 67%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-stat-card hero-stat-card--violet group">
+                        <div class="hero-stat-card__glow"></div>
+                        <div class="hero-stat-card__inner">
+                            <div class="flex items-start justify-between gap-2 mb-3">
+                                <div class="hero-stat-icon hero-stat-icon--violet">
+                                    <i data-lucide="database" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="font-mono text-[9px] text-violet-400/40 tracking-wider">ETL</span>
+                            </div>
+                            <div class="hero-stat-value text-violet-300 font-mono font-bold text-2xl md:text-3xl tracking-tight"
+                                data-stat-value="20" data-stat-suffix="M+">0</div>
+                            <p class="text-[10px] font-mono text-slate-400 mt-1.5 uppercase leading-snug">Syslogs benchmarked</p>
+                            <div class="hero-stat-spark hero-stat-spark--violet mt-3" aria-hidden="true">
+                                <span style="--h: 35%"></span><span style="--h: 52%"></span><span style="--h: 48%"></span><span style="--h: 78%"></span><span style="--h: 92%"></span><span style="--h: 100%"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-stat-card hero-stat-card--sky group">
+                        <div class="hero-stat-card__glow"></div>
+                        <div class="hero-stat-card__inner">
+                            <div class="flex items-start justify-between gap-2 mb-3">
+                                <div class="hero-stat-icon hero-stat-icon--sky">
+                                    <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+                                </div>
+                                <span class="font-mono text-[9px] text-sky-400/40 tracking-wider">RVCE</span>
+                            </div>
+                            <div class="hero-stat-value text-sky-400 font-mono font-bold text-2xl md:text-3xl tracking-tight"
+                                data-stat-value="9.25" data-stat-decimals="2">0</div>
+                            <p class="text-[10px] font-mono text-slate-400 mt-1.5 uppercase leading-snug">Undergrad GPA / 10</p>
+                            <div class="hero-stat-meter hero-stat-meter--sky mt-3" aria-hidden="true">
+                                <div class="hero-stat-meter__fill" style="width: 92.5%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <script>
+                (function initHeroTelemetry() {
+                    const root = document.getElementById('hero-telemetry');
+                    if (!root) return;
+
+                    function animateValue(el) {
+                        if (el.dataset.statAnimated === 'true') return;
+                        el.dataset.statAnimated = 'true';
+
+                        const target = parseFloat(el.dataset.statValue, 10);
+                        const suffix = el.dataset.statSuffix || '';
+                        const decimals = parseInt(el.dataset.statDecimals || '0', 10);
+                        const duration = 1400;
+                        const start = performance.now();
+
+                        function frame(now) {
+                            const t = Math.min(1, (now - start) / duration);
+                            const eased = 1 - Math.pow(1 - t, 4);
+                            const current = target * eased;
+                            const formatted = decimals
+                                ? current.toFixed(decimals)
+                                : Math.round(current).toLocaleString('en-US');
+                            el.textContent = formatted + suffix;
+                            if (t < 1) requestAnimationFrame(frame);
+                        }
+                        requestAnimationFrame(frame);
+                    }
+
+                    const values = root.querySelectorAll('[data-stat-value]');
+                    const observer = new IntersectionObserver(
+                        (entries) => {
+                            entries.forEach((entry) => {
+                                if (!entry.isIntersecting) return;
+                                entry.target.querySelectorAll('[data-stat-value]').forEach(animateValue);
+                                observer.unobserve(entry.target);
+                            });
+                        },
+                        { threshold: 0.35 }
+                    );
+                    observer.observe(root);
+
+                    if (typeof lucide !== 'undefined') lucide.createIcons();
+                })();
+            </script>
         </section>
 
 
@@ -336,11 +460,19 @@
                         class="absolute -left-[31px] md:-left-[47px] top-1.5 w-3 h-3 rounded-full bg-white border-4 border-obsidian">
                     </div>
                     <div
-                        class="flex flex-wrap items-center justify-between gap-2 font-mono text-xs text-slate-500 mb-1">
+                        class="flex flex-wrap items-center justify-between gap-2 font-mono text-xs text-slate-500 mb-2">
                         <span>AUG 2024 — AUG 2026 // BANGALORE, INDIA</span>
                         <span class="px-2 py-0.5 rounded bg-white/10 text-white text-[10px]">FULL-TIME</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white">Software Developer @ Cisco Systems India Pvt. Ltd.</h3>
+                    <div class="flex items-center gap-4 mb-1">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 p-2 flex items-center justify-center shrink-0 group-hover:border-white/30 transition-all">
+                            <img src="cisco-logo.svg" alt="Cisco Logo"
+                                class="w-full h-full object-contain filter brightness-110"
+                                onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg';">
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-chrome-silver transition-colors">Software Developer @ Cisco Systems India Pvt. Ltd.</h3>
+                    </div>
                     <ul
                         class="text-xs md:text-sm text-slate-400 mt-2 font-light space-y-1.5 list-disc list-inside leading-relaxed text-justify">
                         <li>Architected a production agentic AI backend using Python, FastAPI, LangGraph, PostgreSQL,
@@ -362,12 +494,19 @@
                         class="absolute -left-[31px] md:-left-[47px] top-1.5 w-3 h-3 rounded-full bg-slate-600 border-4 border-obsidian">
                     </div>
                     <div
-                        class="flex flex-wrap items-center justify-between gap-2 font-mono text-xs text-slate-500 mb-1">
+                        class="flex flex-wrap items-center justify-between gap-2 font-mono text-xs text-slate-500 mb-2">
                         <span>JAN 2024 — JUL 2024 // BANGALORE, INDIA</span>
                         <span class="px-2 py-0.5 rounded bg-white/5 text-slate-300 text-[10px]">INTERNSHIP</span>
                     </div>
-                    <h3 class="text-xl font-bold text-white">Software Developer Intern @ Cisco Systems India Pvt. Ltd.
-                    </h3>
+                    <div class="flex items-center gap-4 mb-1">
+                        <div
+                            class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 p-2 flex items-center justify-center shrink-0 group-hover:border-white/30 transition-all">
+                            <img src="cisco-logo.svg" alt="Cisco Logo"
+                                class="w-full h-full object-contain filter brightness-110"
+                                onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg';">
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-chrome-silver transition-colors">Software Developer Intern @ Cisco Systems India Pvt. Ltd.</h3>
+                    </div>
                     <ul
                         class="text-xs md:text-sm text-slate-400 mt-2 font-light space-y-1.5 list-disc list-inside leading-relaxed text-justify">
                         <li>Developed high-volume distributed microservices using Python and message queues for
@@ -383,86 +522,144 @@
 
         <!-- 05. SELECTED PROJECTS SECTION -->
         <section id="projects" class="snap-section flex flex-col justify-center relative px-6 max-w-6xl mx-auto">
+            <!-- CATEGORY FILTER BUTTONS -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-8 font-mono text-xs">
+                <button onclick="filterProjects('all')" class="px-4 py-1.5 rounded-full bg-white text-black font-semibold tracking-wider transition-all">ALL SYSTEMS</button>
+                <button onclick="filterProjects('ai')" class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-all">AGENTIC AI & LLM</button>
+                <button onclick="filterProjects('distributed')" class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-all">DISTRIBUTED PIPELINES</button>
+            </div>
+            
             <div class="mb-8">
                 <span class="font-mono text-xs text-slate-500 tracking-widest uppercase">05 //
                     PROJECTS</span>
                 <h2 class="text-3xl md:text-5xl font-bold text-white tracking-tight mt-1">Selected Projects</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Project 1 -->
-                <div
-                    class="glass-panel rounded-2xl p-6 silver-border flex flex-col justify-between h-[380px] group transition-all duration-300 hover:-translate-y-1">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="font-mono text-[10px] text-slate-500">PROJECT 01</span>
-                            <!-- Action Links -->
-                            <div class="flex items-center gap-2">
-                                <!-- GitHub Link -->
-                                <a href="https://github.com/mabellat/Race-Intelligence-Engine" target="_blank"
-                                    title="View Source Code"
-                                    class="p-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all">
-                                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-                                    </svg>
-                                </a>
-                                <!-- Live Demo Link (If exists) -->
-                                <a href="https://race-intelligence-engine-mabellat.streamlit.app/" target="_blank"
-                                    title="Launch Live Demo"
-                                    class="p-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all flex items-center gap-1 font-mono text-[10px]">
-                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                                </a>
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Project 1 — Race Intelligence (featured preview) -->
+                <div data-project-category="ai"
+                    class="project-card project-card-featured glass-panel rounded-2xl p-0 silver-border flex flex-col overflow-hidden min-h-[420px] group transition-all duration-300 hover:-translate-y-1">
+                    <div class="project-live-preview block relative shrink-0 border-b border-white/10">
+                        <div class="project-preview-chrome flex items-center gap-2 px-3 py-2">
+                            <span class="flex gap-1 shrink-0">
+                                <span class="w-2 h-2 rounded-full bg-red-500/70"></span>
+                                <span class="w-2 h-2 rounded-full bg-amber-400/70"></span>
+                                <span class="w-2 h-2 rounded-full bg-emerald-400/70"></span>
+                            </span>
+                            <a href="https://race-intelligence-engine-mabellat.streamlit.app/" target="_blank" rel="noopener noreferrer"
+                                class="flex-1 mx-1 px-2 py-0.5 rounded-md bg-white/5 border border-white/10 font-mono text-[8px] text-slate-400 truncate text-center hover:text-white hover:border-white/20 transition-colors">
+                                race-intelligence-engine-mabellat.streamlit.app
+                            </a>
+                            <span class="px-1.5 py-0.5 rounded bg-sky-500/20 border border-sky-400/40 font-mono text-[7px] text-sky-300 uppercase tracking-wider shrink-0">Live</span>
+                        </div>
+                        <div class="project-embed-shell" data-embed-width="1280" data-embed-height="800"
+                            data-fallback="previews/race-intelligence-live.png">
+                            <iframe class="project-embed-iframe" title="Race Intelligence Engine live preview"
+                                loading="lazy"
+                                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+                                data-src="https://race-intelligence-engine-mabellat.streamlit.app/?embed=true"></iframe>
+                            <div class="project-embed-fallback hidden" aria-hidden="true">
+                                <img src="previews/race-intelligence-live.png" alt="Race Intelligence Engine app screenshot">
                             </div>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Personal Race Intelligence</h3>
-                        <p class="text-xs text-slate-400 font-light leading-relaxed">Streamlit & FastAPI app analyzing
-                            GPX route files to synthesize spatial pace strategies across terrain changes with Gemini
-                            API.</p>
+                        <p class="font-mono text-[8px] text-slate-600 px-3 py-1.5 text-center tracking-wide">Live embed · scroll &amp; interact inside the frame</p>
                     </div>
-                    <div class="flex flex-wrap gap-1.5 font-mono text-[9px] text-slate-400">
-                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">PYTHON</span>
-                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">FASTAPI</span>
-                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">POSTGIS</span>
-                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">GEMINI API</span>
+                    <div class="p-5 flex flex-col justify-between flex-1 gap-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-mono text-[10px] text-slate-500">PROJECT 01</span>
+                                <div class="flex items-center gap-2">
+                                    <a href="https://github.com/mabellat/Race-Intelligence-Engine" target="_blank" rel="noopener noreferrer"
+                                        title="View Source Code"
+                                        class="p-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all">
+                                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://race-intelligence-engine-mabellat.streamlit.app/" target="_blank" rel="noopener noreferrer"
+                                        title="Launch Live Demo"
+                                        class="p-1.5 rounded-lg bg-sky-500/15 border border-sky-400/35 text-sky-300 hover:bg-sky-500/25 hover:text-white transition-all">
+                                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">Personal Race Intelligence</h3>
+                            <p class="text-xs text-slate-400 font-light leading-relaxed text-justify">Streamlit &amp; FastAPI app that ingests GPX routes, maps terrain with PostGIS, and uses Gemini to build spatial pace plans—where to push, where to recover, mile by mile.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[9px] text-slate-400">
+                            <span class="px-2 py-1 rounded bg-white/5 border border-white/10">PYTHON</span>
+                            <span class="px-2 py-1 rounded bg-white/5 border border-white/10">FASTAPI</span>
+                            <span class="px-2 py-1 rounded bg-white/5 border border-white/10">POSTGIS</span>
+                            <span class="px-2 py-1 rounded bg-white/5 border border-white/10">GEMINI API</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div
-                    class="glass-panel rounded-2xl p-6 silver-border flex flex-col justify-between h-[380px] group transition-all duration-300 hover:-translate-y-1">
-                    <div>
-                        <div class="flex items-center justify-between mb-2">
-                            <span class="font-mono text-[10px] text-slate-500">PROJECT 02</span>
-                            <!-- Action Links -->
-                            <div class="flex items-center gap-2">
-                                <!-- GitHub Link -->
-                                <a href="https://github.com/your-username/telemetry-pipeline" target="_blank"
-                                    title="View Source Code"
-                                    class="p-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all">
-                                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                                        <path
-                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-                                    </svg>
-                                </a>
+                <!-- Project 2 — ZoneTwo (featured preview) -->
+                <div data-project-category="ai"
+                    class="project-card project-card-featured glass-panel rounded-2xl p-0 silver-border flex flex-col overflow-hidden min-h-[420px] group transition-all duration-300 hover:-translate-y-1 md:row-span-1">
+                    <div class="project-live-preview block relative shrink-0 border-b border-white/10">
+                        <div class="project-preview-chrome flex items-center gap-2 px-3 py-2">
+                            <span class="flex gap-1 shrink-0">
+                                <span class="w-2 h-2 rounded-full bg-red-500/70"></span>
+                                <span class="w-2 h-2 rounded-full bg-amber-400/70"></span>
+                                <span class="w-2 h-2 rounded-full bg-emerald-400/70"></span>
+                            </span>
+                            <a href="https://zone-two-mu.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                class="flex-1 mx-1 px-2 py-0.5 rounded-md bg-white/5 border border-white/10 font-mono text-[8px] text-slate-400 truncate text-center hover:text-white hover:border-white/20 transition-colors">
+                                zone-two-mu.vercel.app
+                            </a>
+                            <span class="px-1.5 py-0.5 rounded bg-[#FF5A1F]/20 border border-[#FF5A1F]/40 font-mono text-[7px] text-[#FF8A5C] uppercase tracking-wider shrink-0">Live</span>
+                        </div>
+                        <div class="project-embed-shell project-embed-shell--zonetwo" data-embed-width="1280" data-embed-height="800"
+                            data-fallback="previews/zonetwo-live.png">
+                            <iframe class="project-embed-iframe" title="ZoneTwo live preview"
+                                loading="lazy"
+                                sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+                                data-src="https://zone-two-mu.vercel.app/"></iframe>
+                            <div class="project-embed-fallback hidden" aria-hidden="true">
+                                <img src="previews/zonetwo-live.png" alt="ZoneTwo app screenshot">
                             </div>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Live Telemetry Pipeline</h3>
-                        <p class="text-xs text-slate-400 font-light leading-relaxed">Distributed event-streaming engine
-                            simulating live runner metrics with real-time anomaly detection alerts via Spark &
-                            WebSockets.</p>
+                        <p class="font-mono text-[8px] text-slate-600 px-3 py-1.5 text-center tracking-wide">Live embed · scroll &amp; interact inside the frame</p>
                     </div>
-                    <div class="flex flex-wrap gap-1.5 font-mono text-[9px] text-slate-400">
-                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">KAFKA</span>
-                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">SPARK</span>
-                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">REDIS</span>
-                        <span class="px-2 py-1 rounded bg-white/5 border border-white/10">WEBSOCKETS</span>
+                    <div class="p-5 flex flex-col justify-between flex-1 gap-4">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-mono text-[10px] text-slate-500">PROJECT 02</span>
+                                <div class="flex items-center gap-2">
+                                    <a href="https://github.com/mabellat/ZoneTwo" target="_blank" rel="noopener noreferrer"
+                                        title="View Source Code"
+                                        class="p-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:bg-white/10 transition-all">
+                                        <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                                        </svg>
+                                    </a>
+                                    <a href="https://zone-two-mu.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                        title="Launch Live Demo"
+                                        class="p-1.5 rounded-lg bg-[#FF5A1F]/15 border border-[#FF5A1F]/35 text-[#FF8A5C] hover:bg-[#FF5A1F]/25 hover:text-white transition-all">
+                                        <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2">ZoneTwo — Endurance Coach</h3>
+                            <p class="text-xs text-slate-400 font-light leading-relaxed text-justify">Pulls your Strava runs into a real dashboard—zones, load, race plans, the works—then lets an AI coach chat with you. It can’t make up mileage; every stat comes straight from your data.</p>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 font-mono text-[9px] text-slate-400">
+                            <span class="px-2 py-1 rounded bg-white/5 border border-white/10">FASTAPI</span>
+                            <span class="px-2 py-1 rounded bg-white/5 border border-white/10">NEXT.JS</span>
+                            <span class="px-2 py-1 rounded bg-white/5 border border-white/10">LANGGRAPH</span>
+                            <span class="px-2 py-1 rounded bg-white/5 border border-white/10">POSTGRES</span>
+                            <span class="px-2 py-1 rounded bg-white/5 border border-white/10">STRAVA</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div
-                    class="glass-panel rounded-2xl p-6 silver-border flex flex-col justify-between h-[380px] group transition-all duration-300 hover:-translate-y-1">
+                <div data-project-category="ai distributed"
+                    class="project-card glass-panel rounded-2xl p-6 silver-border flex flex-col justify-between h-[380px] group transition-all duration-300 hover:-translate-y-1">
                     <div>
                         <div class="flex items-center justify-between mb-2">
                             <span class="font-mono text-[10px] text-slate-500">PROJECT 03</span>
@@ -480,8 +677,7 @@
                             </div>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">Enterprise RAG & Graph Engine</h3>
-                        <p class="text-xs text-slate-400 font-light leading-relaxed">Hybrid vector-and-graph search
-                            engine extracting entity graphs into Neo4j with pgvector isolated embeddings.</p>
+                        <p class="text-xs text-slate-400 font-light leading-relaxed text-justify">Hybrid vector-and-graph search engine that extracts entity graphs into Neo4j while keeping embeddings isolated in pgvector for grounded retrieval at scale.</p>
                     </div>
                     <div class="flex flex-wrap gap-1.5 font-mono text-[9px] text-slate-400">
                         <span class="px-2 py-1 rounded bg-white/5 border border-white/10">PGVECTOR</span>
@@ -490,6 +686,70 @@
                     </div>
                 </div>
             </div>
+
+            <script>
+                (function initProjectLiveEmbeds() {
+                    const shells = document.querySelectorAll('.project-embed-shell');
+                    if (!shells.length) return;
+
+                    function fitShell(shell) {
+                        const baseW = parseFloat(shell.dataset.embedWidth || '1280', 10);
+                        const baseH = parseFloat(shell.dataset.embedHeight || '800', 10);
+                        const width = shell.clientWidth || shell.getBoundingClientRect().width;
+                        if (!width) return;
+                        const scale = width / baseW;
+                        shell.style.setProperty('--embed-base-w', baseW + 'px');
+                        shell.style.setProperty('--embed-base-h', baseH + 'px');
+                        shell.style.setProperty('--embed-scale', String(scale));
+                    }
+
+                    function activateShell(shell) {
+                        const iframe = shell.querySelector('.project-embed-iframe');
+                        if (!iframe || iframe.dataset.embedLoaded === 'true') return;
+                        iframe.dataset.embedLoaded = 'true';
+                        if (iframe.dataset.src) iframe.src = iframe.dataset.src;
+                        fitShell(shell);
+
+                    }
+
+                    shells.forEach((shell) => {
+                        fitShell(shell);
+                        const observer = new IntersectionObserver(
+                            (entries) => {
+                                entries.forEach((entry) => {
+                                    if (!entry.isIntersecting) return;
+                                    activateShell(shell);
+                                    observer.disconnect();
+                                });
+                            },
+                            { rootMargin: '120px', threshold: 0.05 }
+                        );
+                        observer.observe(shell);
+                    });
+
+                    window.addEventListener('resize', () => {
+                        shells.forEach(fitShell);
+                    });
+                })();
+
+                function filterProjects(category) {
+                    const cards = document.querySelectorAll('#projects-grid .project-card');
+                    const buttons = document.querySelectorAll('#projects [onclick^="filterProjects"]');
+
+                    cards.forEach(card => {
+                        const categories = (card.dataset.projectCategory || '').split(/\s+/);
+                        const show = category === 'all' || categories.includes(category);
+                        card.classList.toggle('project-card-hidden', !show);
+                    });
+
+                    buttons.forEach(btn => {
+                        const active = btn.getAttribute('onclick') === `filterProjects('${category}')`;
+                        btn.className = active
+                            ? 'px-4 py-1.5 rounded-full bg-white text-black font-semibold tracking-wider transition-all font-mono text-xs'
+                            : 'px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-400 hover:text-white transition-all font-mono text-xs';
+                    });
+                }
+            </script>
         </section>
 
 
